@@ -376,7 +376,7 @@
         <div class="row">
 
           <!-- AI Emotion Detector -->
-          <div class="col s12 m6 l4">
+          <div class="col s12 m6 l4" id = "ai">
             <div class="card medium">
               <div class="card-image waves-effect waves-block waves-light">
                 <img alt="Screenshot of  web app" src="/assets/img/computer-vision-v2-04.png" style="height: 100%; width: 100%" class="activator" />
@@ -404,7 +404,7 @@
           </div>
 
           <!-- GPS Mapping Software -->
-          <div class="col s12 m6 l4">
+          <div class="col s12 m6 l4" id = "gps">
             <div class="card medium">
               <div class="card-image waves-effect waves-block waves-light">
                 <img alt="Screenshot of  web app" src="/assets/img/gps.png" style="height: 100%; width: 100%" class="activator" />
@@ -431,8 +431,37 @@
             </div>
           </div>
 
+          <!-- Example -->
+          <div class="col s12 m6 l4" id = "ex">
+            <div class="card medium">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img alt="Screenshot of  web app" src="/assets/img/gps.png" style="height: 100%; width: 100%" class="activator" />
+              </div>
+              <div class="card-content">
+                <span class="card-title activator teal-text hoverline">EXAMPLE<i
+                    class="mdi-navigation-more-vert right"></i></span>
+                <p>
+                  EXAMPLE
+                </p>
+              </div>
+              <div class="card-reveal">
+                <!-- TODO: change this -- only close button -->
+                <!-- <span class="card-title brown-text">Accomplishments<i class="mdi-navigation-close right"></i></span> -->
+                <span class="card-title brown-text"><small>Accomplishments</small><i
+                    class="mdi-navigation-close right"></i></span>
+                <ul>
+                  <li><b>Tools:</b> C++, EZGL, OSM, Twilio, Git</li>
+                  <li>Features included directions sent to phone via text, landmark/POI identification, subway mapping</li>
+                  <li>Produced fastest solution to a variant of the Travelling Salesman problem using greedy algorithm, genetic
+                    algorithm, 3-opt, and multithreading</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
           <!-- ************* -->
         </div>
+        <button id="loadButton">LOAD MORE</button>
       </div>
     </section>
 
@@ -617,6 +646,34 @@
       backSpeed: 40
     });
   </script>
+
+<script>
+  var projectList = [{
+      "id" : "ai",
+      "date" : "2022-12-01"
+    }, {
+      "id" : "gps",
+      "date" : "2022-04-01"
+  },
+  {
+      "id" : "ex",
+      "date" : "2021-04-01"
+  }]
+  
+  projectList.sort((a,b) => new Date(b.date) - new Date(a.date));
+  document.addEventListener("DOMContentLoaded", function () {
+    for (let i = 0; i < projectList.length; i++){
+      document.getElementById(projectList[i].id).style.display = "none";
+    }
+    document.getElementById(projectList[0].id).style.display = "block";
+  });
+  document.getElementById('loadButton').addEventListener('click', function() {
+    for (let i = 0; i < projectList.length; i++){
+      document.getElementById(projectList[i].id).style.display = "block";
+    }
+  });
+</script>
+
 
 
   <!-- jQuery-->
